@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumina — The Fluid Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+  <!-- Lava Lamp Ambient Background Canvas -->
+  <div class="lava-lamp-container" id="lavaContainer" aria-hidden="true">
+    <canvas id="lavaCanvas"></canvas>
+    <div class="lava-blur-overlay"></div>
+  </div>
+
+  <!-- Interactive Lava Controls Floating Pill -->
+  <div class="lava-control-pill" id="lavaControls">
+    <div class="lava-pill-indicator">
+      <span class="lava-pill-dot"></span>
+      <span class="lava-pill-label">Lava Flow</span>
+    </div>
+    <div class="lava-palette-selector" title="Change Lava Palette">
+      <button class="palette-btn active" data-palette="sunset" title="Sunset Amber & Coral" style="--btn-color: #ff6b6b;"></button>
+      <button class="palette-btn" data-palette="aurora" title="Aurora Violet & Aqua" style="--btn-color: #8b5cf6;"></button>
+      <button class="palette-btn" data-palette="citrus" title="Citrus Gold & Peach" style="--btn-color: #f59e0b;"></button>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Lumina Home">
+        <div class="logo-mark">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGrad" x1="2" y1="2" x2="30" y2="30" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FF6B6B" />
+                <stop offset="0.5" stop-color="#FF9F43" />
+                <stop offset="1" stop-color="#FF5252" />
+              </linearGradient>
+            </defs>
+            <path d="M16 3C16 3 8 13.2 8 19.5C8 23.9 11.6 27.5 16 27.5C20.4 27.5 24 23.9 24 19.5C24 13.2 16 3 16 3Z" fill="url(#logoGrad)"/>
+            <circle cx="16" cy="19.5" r="4.5" fill="#FFFFFF" fill-opacity="0.9"/>
+          </svg>
+        </div>
+        <span class="brand-name">Lumina</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Button & Mobile Hamburger -->
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary nav-cta">Get Started</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- 1. HERO SECTION -->
+    <section class="section hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-sparkle">✨</span>
+            <span>Next-Gen Fluid Workspace</span>
+            <span class="badge-arrow">→</span>
+          </div>
+          
+          <h1 class="hero-title">
+            Where ideas flow <br>
+            <span class="text-gradient">like molten light.</span>
+          </h1>
+
+          <p class="hero-description">
+            Experience effortless digital orchestration. Lumina unifies design, dynamic workflow automation, and real-time multiplayer synergy into one beautifully tactile light workspace.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#features" class="btn btn-primary btn-lg">
+              <span>Explore Features</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#about" class="btn btn-secondary btn-lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg>
+              <span>See How It Works</span>
+            </a>
+          </div>
+
+          <!-- Trust metrics -->
+          <div class="hero-trust">
+            <div class="avatar-stack">
+              <div class="avatar" style="background-color: #fed7aa;">👩‍💻</div>
+              <div class="avatar" style="background-color: #fbcfe8;">👨‍🎨</div>
+              <div class="avatar" style="background-color: #bae6fd;">👩‍🔬</div>
+              <div class="avatar" style="background-color: #ddd6fe;">🧑‍💼</div>
+            </div>
+            <div class="trust-text">
+              <div class="stars">★★★★★</div>
+              <p>Loved by <strong>40,000+</strong> product teams worldwide</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Glass Showcase Card -->
+        <div class="hero-visual">
+          <div class="glass-card hero-card">
+            <!-- Card Header -->
+            <div class="card-top-bar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-amber"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="card-status-pill">
+                <span class="pulse-indicator"></span>
+                <span>Live Orchestration</span>
+              </div>
+            </div>
+
+            <!-- Card Metric Grid -->
+            <div class="hero-card-stats">
+              <div class="stat-box">
+                <div class="stat-label">Active Flow Rate</div>
+                <div class="stat-value">98.4<small>%</small></div>
+                <div class="stat-trend positive">↑ +14.2% this week</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-label">Task Latency</div>
+                <div class="stat-value">24<small>ms</small></div>
+                <div class="stat-trend positive">⚡ Ultra-low</div>
+              </div>
+            </div>
+
+            <!-- Graphic Wave Visualizer -->
+            <div class="card-graph-container">
+              <div class="graph-header">
+                <span class="graph-title">Throughput Dynamics</span>
+                <span class="graph-badge">Realtime</span>
+              </div>
+              <div class="graph-svg-wrapper">
+                <svg viewBox="0 0 380 120" preserveAspectRatio="none" class="sparkline-svg">
+                  <defs>
+                    <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#ff7675" stop-opacity="0.35"/>
+                      <stop offset="100%" stop-color="#ff7675" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M 0,90 Q 40,40 90,65 T 190,30 T 280,70 T 380,20 L 380,120 L 0,120 Z" fill="url(#sparkGrad)"/>
+                  <path d="M 0,90 Q 40,40 90,65 T 190,30 T 280,70 T 380,20" fill="none" stroke="#ff6b6b" stroke-width="3" stroke-linecap="round"/>
+                  <!-- Floating data beacons -->
+                  <circle cx="190" cy="30" r="5" fill="#ff6b6b" class="spark-node"/>
+                  <circle cx="380" cy="20" r="5" fill="#ff6b6b" class="spark-node"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Active Stream Items -->
+            <div class="card-activities">
+              <div class="activity-row">
+                <div class="activity-icon icon-coral">✦</div>
+                <div class="activity-info">
+                  <div class="activity-title">Async Vector Pipeline Sync</div>
+                  <div class="activity-time">Automated • Just now</div>
+                </div>
+                <span class="status-badge success">Completed</span>
+              </div>
+              <div class="activity-row">
+                <div class="activity-icon icon-amber">◈</div>
+                <div class="activity-info">
+                  <div class="activity-title">Interactive Mesh Re-balancing</div>
+                  <div class="activity-time">Parallel Workers • 2s ago</div>
+                </div>
+                <span class="status-badge active">Streaming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">About Lumina</span>
+          <h2 class="section-title">Designed around the fluidity of human creativity</h2>
+          <p class="section-subtitle">
+            We reimagined the modern productivity stack from scratch. No rigid silos, no clunky friction—just seamless, organic responsiveness that adapts to your team's natural rhythm.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Story Card -->
+          <div class="glass-card about-story-card">
+            <div class="about-pill">Our Philosophy</div>
+            <h3 class="card-heading">Software should feel as alive and frictionless as thought itself.</h3>
+            <p class="about-text">
+              Traditional tools force creative thinkers into rigid boxes and static spreadsheets. Lumina was engineered to eliminate cognitive friction with liquid dynamics, real-time collaboration, and organic workflow structures.
+            </p>
+            <p class="about-text">
+              Whether you are architecting a distributed system, orchestrating cross-functional launches, or iterating on breakthrough concepts, Lumina provides the clarity of an immaculate light canvas backed by unyielding engineering precision.
+            </p>
+            <div class="about-signature">
+              <div class="signature-line">
+                <span class="sig-name">The Lumina Architecture Team</span>
+                <span class="sig-title">Built with passion & precision</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metrics Showcase -->
+          <div class="about-metrics-column">
+            <div class="glass-card metric-card">
+              <div class="metric-icon">🚀</div>
+              <div class="metric-number">99.99%</div>
+              <div class="metric-label">Uptime Reliability</div>
+              <p class="metric-desc">Distributed global edge network ensuring non-stop accessibility.</p>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-icon">⚡</div>
+              <div class="metric-number">&lt; 35ms</div>
+              <div class="metric-label">Global Latency</div>
+              <p class="metric-desc">Blazing fast real-time state synchronization across all continents.</p>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-icon">🌐</div>
+              <div class="metric-number">140+</div>
+              <div class="metric-label">Countries Supported</div>
+              <p class="metric-desc">Uniting distributed engineering and design teams worldwide.</p>
+            </div>
+
+            <div class="glass-card metric-card">
+              <div class="metric-icon">🛡️</div>
+              <div class="metric-number">Zero</div>
+              <div class="metric-label">Data Compromises</div>
+              <p class="metric-desc">SOC-2 Type II certified with end-to-end cryptographic isolation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FEATURES SECTION -->
+    <section class="section features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Core Capabilities</span>
+          <h2 class="section-title">Four pillars of effortless acceleration</h2>
+          <p class="section-subtitle">
+            Every layer of Lumina is tuned to give your workflow unmatched velocity, elegance, and peace of mind.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper coral-glow">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="feature-badge">01. Performance</div>
+            <h3 class="feature-title">Lightning Fast Execution</h3>
+            <p class="feature-description">
+              Optimized for microsecond reactions. Instantaneous search, zero frame drops, and background data hydration mean you never wait on spinning loaders.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Hardware-accelerated rendering</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Optimistic client-side updates</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Sub-50ms global cache delivery</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper amber-glow">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <div class="feature-badge">02. Automation</div>
+            <h3 class="feature-title">Adaptive Fluid Automation</h3>
+            <p class="feature-description">
+              Construct self-healing workflows that dynamically adjust to workload spikes, routing tasks and processing payloads with zero manual intervention.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Visual flow builder with instant previews</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Context-aware trigger heuristics</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Pre-built connectors to 300+ APIs</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper violet-glow">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="feature-badge">03. Collaboration</div>
+            <h3 class="feature-title">Real-Time Multiplayer Synergy</h3>
+            <p class="feature-description">
+              Work together seamlessly on the exact same canvas. Live cursor presence, inline audio threads, and revision time travel keep everyone perfectly synchronized.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Live multiplayer cursor tracking</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Granular branch & merge controls</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Inline contextual comments & tags</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="glass-card feature-card">
+            <div class="feature-icon-wrapper cyan-glow">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <div class="feature-badge">04. Security</div>
+            <h3 class="feature-title">Fortified Enterprise Shield</h3>
+            <p class="feature-description">
+              Bank-grade cryptographic protections embedded into every payload. Maintain complete compliance, governance, and audit trails effortlessly.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <span>End-to-end zero-knowledge encryption</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Fine-grained role-based RBAC access</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Automated SOC-2 & HIPAA compliance</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Let's build something luminous together</h2>
+          <p class="section-subtitle">
+            Whether you are curious about pricing, seeking an enterprise pilot, or just want to say hi, our team is ready to connect.
+          </p>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- Contact Info Left Column -->
+          <div class="glass-card contact-info-card">
+            <h3 class="contact-card-title">Talk to our team</h3>
+            <p class="contact-card-sub">
+              Reach out directly or send us a message. We typically respond within two hours during global operating windows.
+            </p>
+
+            <div class="contact-channels">
+              <div class="channel-item">
+                <div class="channel-icon">✉️</div>
+                <div class="channel-details">
+                  <span class="channel-label">Email Us</span>
+                  <a href="mailto:wamala731@gmail.com" class="channel-link">wamala731@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">💬</div>
+                <div class="channel-details">
+                  <span class="channel-label">Live Support Chat</span>
+                  <span class="channel-text">Available Mon–Fri, 24/5</span>
+                </div>
+              </div>
+
+              <div class="channel-item">
+                <div class="channel-icon">📍</div>
+                <div class="channel-details">
+                  <span class="channel-label">Global Headquarters</span>
+                  <span class="channel-text">28 Ilia Chavchavadze Avenue, Axis Towers<br>Tbilisi 0179, Georgia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Operating promise badge -->
+            <div class="response-pledge">
+              <span class="pledge-icon">⚡</span>
+              <div>
+                <strong>Rapid Response Guarantee</strong>
+                <p>Enterprise enquiries receive a response in under 30 minutes.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Right Column -->
+          <div class="glass-card contact-form-card">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName">Full Name <span class="required">*</span></label>
+                  <input type="text" id="fullName" name="fullName" placeholder="Sarah Jenkins" required>
+                  <span class="error-msg" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="emailAddress">Work Email <span class="required">*</span></label>
+                  <input type="email" id="emailAddress" name="emailAddress" placeholder="sarah@company.com" required>
+                  <span class="error-msg" id="emailError"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="topic">What are you interested in?</label>
+                <div class="select-wrapper">
+                  <select id="topic" name="topic">
+                    <option value="enterprise">Enterprise Pilot & Custom Demo</option>
+                    <option value="pricing">Pricing & Team Licensing</option>
+                    <option value="partnership">Technology Partnership</option>
+                    <option value="support">General Inquiry & Feedback</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your team and what you're looking to achieve..." required></textarea>
+                <span class="error-msg" id="messageError"></span>
+              </div>
+
+              <div class="form-checkbox-group">
+                <label class="custom-checkbox">
+                  <input type="checkbox" id="consent" checked>
+                  <span class="checkbox-indicator"></span>
+                  <span class="checkbox-label">Keep me updated on major product releases and engineering updates.</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block submit-btn" id="submitBtn">
+                <span class="btn-text">Send Message</span>
+                <span class="btn-icon">→</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification Box -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="assertive">
+    <div class="toast-icon">✨</div>
+    <div class="toast-content">
+      <strong class="toast-title">Message Delivered!</strong>
+      <p class="toast-message">Thank you for reaching out. We will get back to you shortly.</p>
+    </div>
+    <button class="toast-close" id="toastCloseBtn" aria-label="Close notification">×</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 3C16 3 8 13.2 8 19.5C8 23.9 11.6 27.5 16 27.5C20.4 27.5 24 23.9 24 19.5C24 13.2 16 3 16 3Z" fill="url(#logoGrad)"/>
+                <circle cx="16" cy="19.5" r="4.5" fill="#FFFFFF" fill-opacity="0.9"/>
+              </svg>
+            </div>
+            <span class="brand-name">Lumina</span>
+          </div>
+          <p class="footer-tagline">
+            The fluid intelligence platform engineered for teams that create at the frontier of innovation.
+          </p>
+        </div>
+
+        <div class="footer-nav-columns">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Product</h4>
+            <ul class="footer-links">
+              <li><a href="#features">Fluid Automation</a></li>
+              <li><a href="#features">Multiplayer Sync</a></li>
+              <li><a href="#features">Security Shield</a></li>
+              <li><a href="#about">Global Network</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Connect</h4>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="Twitter / X">𝕏</a>
+              <a href="#" class="social-icon" aria-label="GitHub">GH</a>
+              <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-icon" aria-label="Discord">DC</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 Lumina Technologies Inc. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <span class="separator">•</span>
+          <a href="#">Terms of Service</a>
+          <span class="separator">•</span>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
